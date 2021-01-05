@@ -1,11 +1,11 @@
 def call() {
     node() {
-
+def p = pipelineConfig()
         stage('Checkout') {
             checkout scm
         }
 
-        def p = pipelineConfig()
+        
 
         stage('Prerequistes'){
             
