@@ -1,2 +1,2 @@
-@Library ('opstree-library@master') _
+@Library ('opstree-library@main') _
 opstreePipeline()
