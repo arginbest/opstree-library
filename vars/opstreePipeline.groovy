@@ -1,4 +1,4 @@
-def p = pipelineConfig()
+
 def call() {
     node() {
 
@@ -7,7 +7,7 @@ def call() {
         }
 
         
-
+def p = pipelineConfig()
         stage('Prerequistes'){
             serviceName = sh (
                     script: "echo ${p.SERVICE_NAME}|cut -d '-' -f 1",
