@@ -1,18 +1,14 @@
 def call() {
-  Map pipelineConfig = readYaml(file: "${WORKSPACE}/pipeline.yaml")
-  return pipelineConfig
-}
-def call() {
     node() {
 
         stage('Checkout') {
             checkout scm
         }
 
-        
+        def p = pipelineConfig()
 
         stage('Prerequistes'){
-            def p = pipelineConfig()
+            
             serviceName = sh (
                     script: "echo ${p.SERVICE_NAME}|cut -d '-' -f 1",
                     returnStdout: true
