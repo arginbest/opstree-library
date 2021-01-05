@@ -5,7 +5,7 @@ def call() {
             checkout scm
         }
 
-def p = pipelineConfig()
+       def p = pipelineConfig()
 
         stage('Prerequistes'){
             
