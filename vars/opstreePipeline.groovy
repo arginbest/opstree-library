@@ -1,3 +1,4 @@
+def p = pipelineConfig()
 def call() {
     node() {
 
@@ -5,7 +6,7 @@ def call() {
             checkout scm
         }
 
-         def p = pipelineConfig()
+        
 
         stage('Prerequistes'){
             serviceName = sh (
