@@ -16,9 +16,16 @@ def call() {
                 ).trim()
         }
 
-        stage('Build & Test') {
+        stage('Build & Test & login DockerHub') {
+                withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'password', usernameVariable: 'username')]) {
+
+    // some block
+
                 sh "mvn --version"
+                sh "docker login --username ${username} --password ${password}
+                
                 // sh "mvn -Ddb_port=${p.DB_PORT} -Dredis_port=${p.REDIS_PORT} clean install"
+        }
         }
 
         stage ('Push Docker Image') {
