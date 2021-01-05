@@ -12,9 +12,10 @@ def call() {
        def p = pipelineConfig()
 
         stage('Prerequistes'){
-}
-
+                TEST = $env
+                sh "echo $TEST"
         }
+
 
         stage('Build & Test & login DockerHub') {
                 withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'password', usernameVariable: 'username')]) {
