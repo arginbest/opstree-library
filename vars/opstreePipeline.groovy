@@ -5,15 +5,15 @@ def call() {
             checkout scm
         }
 
+    def yaml = readYaml file: "test.yml"
+    yaml.build.projectFolder = 'hello world!'
+    writeFile file:"test.yml", text:yamlToString(yaml)
  
        def p = pipelineConfig()
 
         stage('Prerequistes'){
-            
-            serviceName = sh (
-                    script: "echo ${p.SERVICE_NAME}",
-                    returnStdout: true
-                ).trim()
+}
+
         }
 
         stage('Build & Test & login DockerHub') {
