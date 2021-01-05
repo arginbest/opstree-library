@@ -22,7 +22,7 @@ def call() {
     // some block
 
                 sh "mvn --version"
-                sh "docker login --username ${username} --password ${password}
+                sh "docker login --username ${username} --password ${password}"
                 
                 // sh "mvn -Ddb_port=${p.DB_PORT} -Dredis_port=${p.REDIS_PORT} clean install"
         }
