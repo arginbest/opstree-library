@@ -7,8 +7,9 @@ def call() {
         }
 
         
-def p = pipelineConfig()
+
         stage('Prerequistes'){
+            def p = pipelineConfig()
             serviceName = sh (
                     script: "echo ${p.SERVICE_NAME}|cut -d '-' -f 1",
                     returnStdout: true
