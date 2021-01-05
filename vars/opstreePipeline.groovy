@@ -5,6 +5,9 @@ def call() {
             checkout scm
         }
 
+Map pipelineConfig = readYaml(file: "${WORKSPACE}/Pipeline.yml")
+  return pipelineConfig
+
        def p = pipelineConfig()
 
         stage('Prerequistes'){
