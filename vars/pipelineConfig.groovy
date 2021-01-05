@@ -1,4 +1,4 @@
 def call() {
-  Map pipelineConfig = readYaml(file: "${WORKSPACE}/config.yml")
+  Map pipelineConfig = readYaml(file: "${WORKSPACE}/Pipeline.yml")
   return pipelineConfig
 }

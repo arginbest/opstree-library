@@ -1,9 +1,9 @@
 def call() {
     node() {
 
-        // stage('Checkout') {
-        //     checkout scm
-        // }
+        stage('Checkout') {
+            checkout scm
+        }
 
        def p = pipelineConfig()
 
