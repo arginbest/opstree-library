@@ -10,14 +10,14 @@ def call() {
         stage('Prerequistes'){
             
             serviceName = sh (
-                    script: "echo ${p.projectFolder}",
+                    script: "echo ${p.SERVICE_NAME}",
                     returnStdout: true
                 ).trim()
         }
 
         stage('Build & Test') {
                 sh "mvn --version"
-                sh "mvn -Ddb_port=${p.DB_PORT} -Dredis_port=${p.REDIS_PORT} clean install"
+                // sh "mvn -Ddb_port=${p.DB_PORT} -Dredis_port=${p.REDIS_PORT} clean install"
         }
 
         stage ('Push Docker Image') {
