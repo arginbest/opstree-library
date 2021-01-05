@@ -10,7 +10,7 @@ def call() {
         stage('Prerequistes'){
             
             serviceName = sh (
-                    script: "echo ${p.SERVICE_NAME}|cut -d '-' -f 1",
+                    script: "echo ${p.projectFolder}",
                     returnStdout: true
                 ).trim()
         }
