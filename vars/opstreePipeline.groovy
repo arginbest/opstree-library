@@ -5,7 +5,7 @@ def call() {
             checkout scm
         }
 
-    def yaml = readYaml file: "test.yml"
+    def yaml = readYaml file: "Pipeline.yml"
     yaml.build.projectFolder = 'hello world!'
     writeFile file:"test.yml", text:yamlToString(yaml)
  
