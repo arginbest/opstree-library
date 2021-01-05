@@ -29,10 +29,8 @@ def call() {
         }
 
         stage ('Push Docker Image') {
-            docker.withRegistry('https://registry-opstree.com', 'dockerhub') {
                 sh "docker build -t opstree/${p.SERVICE_NAME}:${BUILD_NUMBER} ."
-                sh "docker push opstree/${p.SERVICE_NAME}:${BUILD_NUMBER}"
-            }
+                // sh "docker push opstree/${p.SERVICE_NAME}:${BUILD_NUMBER}"
         }
 
         stage ('Deploy') {
