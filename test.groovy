@@ -19,15 +19,11 @@ node{
         },
         failFast: true
     } catch (err) {
-        emailext body: "${err}", subject: 'fail', to: 'baurzhansiit@gmail.com'
+        mail bcc: '', body: 'hello from jenkins', cc: '', from: '', replyTo: '', subject: 'jenkins-test', 
+            to: 'baurzhansiit@gmail.com'
+        // emailext body: "${err}", subject: 'fail', to: 'baurzhansiit@gmail.com'
     }
 }
 
 
-// mail bcc: '', 
-//             body: 'hello from jenkins', 
-//             cc: '', 
-//             from: '', 
-//             replyTo: '', 
-//             subject: 'jenkins-test', 
-//             to: 'baurzhansiit@gmail.com'
+
