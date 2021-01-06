@@ -23,7 +23,7 @@ def call() {
         }
             
         dir("${p.test.testFolder}") {
-            stage("parallel test") {
+            stage("${p.test.name}") {
                 parallel {
                     stage('Projects Test 1') {
                         agent {
@@ -31,7 +31,7 @@ def call() {
                         }
                         steps{
                             script {
-                                your test 1
+                               sh "${p.test.testCommand}"
                             }
                         }
                         post{
