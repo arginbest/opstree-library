@@ -8,5 +8,5 @@ node{
             }
 
         }
-       // failFast: true
+       failFast: true
 }
