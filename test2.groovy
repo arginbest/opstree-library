@@ -4,9 +4,6 @@ node{
                 sh "echo hello"
                 sh "exit 1"
             }
-
-        }
-        timestamps {
             stage('two') {
                 sh "echo world"
             }
