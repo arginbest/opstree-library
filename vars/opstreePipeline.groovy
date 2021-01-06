@@ -8,8 +8,8 @@ def call() {
        def p = pipelineConfig()
 
         stage('Prerequistes'){
-                example = "${p.ENVIRONMENT_NAME}"
-                sh "echo ${example}"
+                sh  "echo ${p.ENVIRONMENT_NAME}"
+                
         }
 
 
