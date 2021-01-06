@@ -5,6 +5,7 @@ def call() {
             checkout scm
         }
        def p = pipelineConfig()
+       sh "echo ${p.projectFolder}"
 
         dir("${p.projectFolder}") {
         stage('build'){
