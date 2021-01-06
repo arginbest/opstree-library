@@ -21,11 +21,11 @@ def call() {
         //         sh "${p.deploy.deployCommand}"
         //         }
         // }
-
+        dir("${p.test.testFolder[0]}")
             parallel a: {
                 timestamps {
-                stage("Run test ${p.test.testFolder[0]}") {
-                    sh "${p.test.testCommand}"
+                stage("${p.test.name[0]}") {
+                    sh "${p.test.testCommand[0]}"
                 }
             }
             }, b: {
