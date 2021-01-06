@@ -5,10 +5,6 @@ def call() {
             checkout scm
         }
 
-    def yaml = readYaml file: "Pipeline.yml"
-    yaml.build.projectFolder = 'hello world!'
-    writeFile file:"Pipeline.yml", text:yamlToString(yaml)
- 
        def p = pipelineConfig()
 
         stage('Prerequistes'){
