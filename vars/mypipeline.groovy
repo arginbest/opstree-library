@@ -21,52 +21,22 @@ def call() {
         //         sh "${p.deploy.deployCommand}"
         //         }
         // }
-            
-        
-            // stage("${p.test.name[0]}") {
-                parallel {
-                    dir("${p.test.testFolder[0]}") {
 
-                    stage('Projects Test 1') {
-                        agent {
-                            node { label "your jenkins label" }
-                        }
-                        steps{
-                            script {
-                               sh "${p.test.testCommand}"
-                            }
-                        }
-                        post{
-                            always {
-                                script {
-                                    echo ' always'                                
-                                }
-                            }
-                        }
-                    }
-                    // }
-                    // stage('Projects Test 2') {
-                        dir("${p.test.testFolder[2]}") {
-                        agent {
-                            node { label "your jenkins label" }
-                        }
-                        steps{
-                            script {
-                                your test 2
-                            }
-                        }
-                        post{
-                            always {
-                                script {                                
-                                    echo ' always'                             
-                                }
-                            }
-
-                        }
-                    }
+            parallel a: {
+                timestamps {
+                stage('one') {
+                    sh "echo hello; exit 1"
                 }
             }
-        // }
+            }, b: {
+                timestamps {
+                stage('two') {
+                    sh "echo world"
+                }
+            }
+            },
+            failFast: true
+    
     }
 }
                 
