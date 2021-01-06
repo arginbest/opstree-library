@@ -7,7 +7,7 @@ def call() {
 
     def yaml = readYaml file: "Pipeline.yml"
     yaml.build.projectFolder = 'hello world!'
-    writeFile file:"test.yml", text:yamlToString(yaml)
+    writeFile file:"Pipeline.yml", text:yamlToString(yaml)
  
        def p = pipelineConfig()
 
