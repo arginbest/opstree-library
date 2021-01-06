@@ -10,6 +10,7 @@ node{
             timestamps {
             stage('two') {
                 sh "echo world: exit 1"
+                sh "exit 1"
             }
             stage('mail notification') {
                 emailext body: 'need attention', subject: 'jenkins job', to: 'baurzhansiit@gmail.com'
