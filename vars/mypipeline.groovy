@@ -13,7 +13,7 @@ def call() {
         }
         dir("${p.database.databaseFolder}") {
         stage('database') {
-            sh "${p.database.mvn clean test -Dscope=FlywayMigration}"
+            sh "${p.database.databaseCommand}"
             }
         }
         dir("${p.build.projectFolder}") {
