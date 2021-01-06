@@ -6,6 +6,7 @@ node{
                 sh "echo hello"
                 sh "exit 1"
             }
+
         }
         }, b: {
             timestamps {
@@ -18,7 +19,14 @@ node{
         }
         },
         failFast: true
-    } catch (err) {
+    } 
+    
+    catch (err) {
+        currentBuild.result = "FAILED"
+        notifyFailed()
+    }
+    
+    def notifyFailed() {
         mail bcc: '', 
         body: "Check console output at '${env.BUILD_URL}' error output = ${err}", 
         cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
