@@ -24,6 +24,10 @@ def call() {
                 // sh "mvn -Ddb_port=${p.DB_PORT} -Dredis_port=${p.REDIS_PORT} clean install"
         }
         }
+        
+        stage("clean dir") {
+            cleanWs()
+}
 
         stage ('Push Docker Image') {
                 sh "docker build -t opstree/${p.SERVICE_NAME}:${BUILD_NUMBER} ."
