@@ -9,7 +9,7 @@ def call() {
 
         stage('Prerequistes'){
                 example = "${p.ENVIRONMENT_NAME}"
-                sh "echo $example"
+                sh "echo ${example}"
         }
 
 
