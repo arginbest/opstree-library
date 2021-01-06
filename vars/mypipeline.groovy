@@ -1,27 +1,71 @@
 def call() {
     node() {
 
-        stage('Checkout') {
-            checkout scm
-        }
-       def p = pipelineConfig()
-       
-        dir("${p.build.projectFolder}") {
-        stage('build'){
-            sh "${p.build.buildCommand}"
+            stage('Checkout') {
+                checkout scm
             }
+        def p = pipelineConfig()
+        
+        dir("${p.build.projectFolder}") {
+            stage('build'){
+                sh "${p.build.buildCommand}"
+                }
         }
         dir("${p.database.databaseFolder}") {
-        stage('database') {
-            sh "${p.database.databaseCommand}"
-            }
+            stage('database') {
+                sh "${p.database.databaseCommand}"
+                }
         }
         dir("${p.build.projectFolder}") {
-        stage('deploy'){
-            sh "${p.deploy.deployCommand}"
+            stage('"${p.test.performance}"'){
+                sh "${p.deploy.deployCommand}"
+                }
+        }
+            
+        dir("${p.test.testFolder}") {
+            stage("parallel test") {
+                parallel {
+                    stage('Projects Test 1') {
+                        agent {
+                            node { label "your jenkins label" }
+                        }
+                        steps{
+                            script {
+                                your test 1
+                            }
+                        }
+                        post{
+                            always {
+                                script {
+                                    echo ' always'                                
+                                }
+                            }
+
+                        }
+                    }
+
+                    stage('Projects Test 2') {
+                        agent {
+                            node { label "your jenkins label" }
+                        }
+                        steps{
+                            script {
+                                your test 2
+                            }
+                        }
+                        post{
+                            always {
+                                script {                                
+                                    echo ' always'                             
+
+                                }
+                            }
+
+                        }
+                    }
+                }   
             }
         }
-        
     }
 }
                 
