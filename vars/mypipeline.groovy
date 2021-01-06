@@ -25,7 +25,7 @@ def call() {
             parallel a: {
                 timestamps {
                 stage('one') {
-                    sh "echo hello; exit 1"
+                    sh "echo hello;"
                 }
             }
             }, b: {
