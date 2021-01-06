@@ -26,6 +26,7 @@ def call() {
             stage("${p.test.name[0]}") {
                 parallel {
                     dir("${p.test.testFolder[0]}") {
+                        sh "pwd"
                     stage('Projects Test 1') {
                         agent {
                             node { label "your jenkins label" }
