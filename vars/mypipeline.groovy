@@ -43,6 +43,7 @@ def call() {
 
                         }
                     }
+                }
         dir("${p.test.testFolder[2]}") {
 
                     stage('Projects Test 2') {
@@ -101,4 +102,3 @@ def call() {
 //         }
 //     }
 // }
-    
