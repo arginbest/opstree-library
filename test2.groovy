@@ -6,8 +6,7 @@ node{
                 sh "echo hello"
                 // sh "exit 1"
             }
-        currentBuild.result = "FAILED"
-        notifyFailed()
+
         }
         }, b: {
             timestamps {
@@ -24,6 +23,8 @@ node{
     
 
 }
+        // currentBuild.result = "FAILED"
+        // notifyFailed()
 
         // mail bcc: '', 
         // body: "Check console output at '${env.BUILD_URL}' error output = ${err}", 
