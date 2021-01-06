@@ -5,9 +5,9 @@ def call() {
             checkout scm
         }
        def p = pipelineConfig()
-       sh "echo ${p.projectFolder}"
+       sh "echo ${p.build.projectFolder}"
 
-        dir("${p.projectFolder}") {
+        dir("${p.build.projectFolder}") {
         stage('build'){
             sh "${p.build.buildCommand}"
             }
