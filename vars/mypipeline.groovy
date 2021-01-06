@@ -5,13 +5,23 @@ def call() {
             checkout scm
         }
        def p = pipelineConfig()
-       sh "echo ${p.build.projectFolder}"
-
+       
         dir("${p.build.projectFolder}") {
         stage('build'){
             sh "${p.build.buildCommand}"
             }
         }
+        dir("${p.database.databaseFolder}") {
+        stage('database') {
+            sh "${p.database.mvn clean test -Dscope=FlywayMigration}"
+            }
+        }
+        dir("${p.build.projectFolder}") {
+        stage('deploy'){
+            sh "${p.deploy.deployCommand}"
+            }
+        }
+        
     }
 }
                 
