@@ -19,7 +19,10 @@ node{
         },
         failFast: true
     } catch (err) {
-        mail bcc: '', body: "hello from jenkins you have ${err}", cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
+        mail bcc: '', 
+        body: """<p>FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+        <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>hello from jenkins you have ${err}""", 
+        cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
             to: 'baurzhansiit@gmail.com'
         // emailext body: "${err}", subject: 'fail', to: 'baurzhansiit@gmail.com'
     }
