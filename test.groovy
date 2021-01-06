@@ -14,9 +14,9 @@ node{
             stage('two') {
                 sh "echo world"
             }
-            stage('mail notification') {
-                emailext body: 'need attention', subject: 'jenkins job', to: 'baurzhansiit@gmail.com'
-            }
+            // stage('mail notification') {
+            //     emailext body: 'need attention', subject: 'jenkins job', to: 'baurzhansiit@gmail.com'
+            // }
         }
         },
         failFast: true
