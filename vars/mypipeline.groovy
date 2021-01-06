@@ -6,21 +6,21 @@ def call() {
             }
         def p = pipelineConfig()
         
-        dir("${p.build.projectFolder}") {
-            stage('build'){
-                sh "${p.build.buildCommand}"
-                }
-        }
-        dir("${p.database.databaseFolder}") {
-            stage('database') {
-                sh "${p.database.databaseCommand}"
-                }
-        }
-        dir("${p.build.projectFolder}") {
-            stage('"${p.test.performance}"'){
-                sh "${p.deploy.deployCommand}"
-                }
-        }
+        // dir("${p.build.projectFolder}") {
+        //     stage('build'){
+        //         sh "${p.build.buildCommand}"
+        //         }
+        // }
+        // dir("${p.database.databaseFolder}") {
+        //     stage('database') {
+        //         sh "${p.database.databaseCommand}"
+        //         }
+        // }
+        // dir("${p.build.projectFolder}") {
+        //     stage('"${p.test.performance}"'){
+        //         sh "${p.deploy.deployCommand}"
+        //         }
+        // }
             
         dir("${p.test.testFolder[0]}") {
             stage('${p.test.name}') {
@@ -43,6 +43,7 @@ def call() {
 
                         }
                     }
+        dir("${p.test.testFolder[2]}") {
 
                     stage('Projects Test 2') {
                         agent {
