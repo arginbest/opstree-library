@@ -22,7 +22,7 @@ def call() {
                 }
         }
             
-        dir("${p.test.testFolder}") {
+        dir("${p.test.testFolder[0]}") {
             stage('${p.test.name}') {
                 parallel {
                     stage('Projects Test 1') {
