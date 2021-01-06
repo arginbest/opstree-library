@@ -8,7 +8,7 @@ def call() {
        def p = pipelineConfig()
 
         stage('Prerequistes'){
-                sh  "echo ${p.build}"
+                sh  "echo ${p.build.projectFolder}"
                 
         }
 
