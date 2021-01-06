@@ -19,12 +19,12 @@ deploy:
   deployCommand: "mvn clean install"
 # Test configuration (should be run in parallel)
 test:
-- testFolder: "test1"
+- testFolder: "test"
   name: "performance"
   testCommand: "mvn clean test -Dscope=performance"
-- testFolder: "test2"
+- testFolder: "test"
   name: "regression"
   testCommand: "mvn clean test -Dscope=regression"
-- testFolder: "test3"
+- testFolder: "test"
   name: "integration"
   testCommand: "mvn clean test -Dscope=integration"
