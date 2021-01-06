@@ -1,10 +1,10 @@
 node{
         timestamps {
             stage('one') {
-                sh "echo hello; exit 1"
+                sh "echo hello"
             }
             stage('two') {
-                sh "echo world"
+                sh "echo world; exit 1"
             }
 
         }
