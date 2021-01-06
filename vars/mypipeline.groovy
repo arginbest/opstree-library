@@ -24,8 +24,8 @@ def call() {
 
             parallel a: {
                 timestamps {
-                stage('one') {
-                    sh "echo hello;"
+                stage("Run test ${p.test.testFolder[0]}") {
+                    sh "${p.test.testCommand}"
                 }
             }
             }, b: {
