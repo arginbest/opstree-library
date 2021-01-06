@@ -22,9 +22,10 @@ def call() {
         //         }
         // }
             
-        dir("${p.test.testFolder[0]}") {
-            stage('${p.test.name}') {
+        
+            stage("${p.test.name}") {
                 parallel {
+                    dir("${p.test.testFolder[0]}") {
                     stage('Projects Test 1') {
                         agent {
                             node { label "your jenkins label" }
@@ -40,13 +41,11 @@ def call() {
                                     echo ' always'                                
                                 }
                             }
-
                         }
                     }
-                }
-        dir("${p.test.testFolder[2]}") {
-
+                    }
                     stage('Projects Test 2') {
+                        dir("${p.test.testFolder[2]}") {
                         agent {
                             node { label "your jenkins label" }
                         }
@@ -59,13 +58,12 @@ def call() {
                             always {
                                 script {                                
                                     echo ' always'                             
-
                                 }
                             }
 
                         }
                     }
-                }   
+                }
             }
         }
     }
