@@ -19,7 +19,7 @@ node{
         },
         failFast: true
     } catch (err) {
-        emailext body: "${err}", subject: 'fail', to: 'baurzhansiit@gmail.com'
+        emailext body: "${err}", subject: 'fail', to: 'bsiitov84@gmail.com'
     }
 }
 
