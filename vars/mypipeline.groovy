@@ -30,12 +30,17 @@ def call() {
             }
             }, b: {
                 timestamps {
-                stage('two') {
-                    sh "echo world"
+                stage("Run ${p.test.name[1]}") {
+                    sh "${p.test.testCommand[1]}"
                 }
             }
-            },
-            failFast: true
+            }, c: {
+                timestamps {
+                stage("Run ${p.test.name[2]}") {
+                    sh "${p.test.testCommand[2]}"
+                }
+            }
+            }, failFast: true
         }
     
     }
