@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="com.example.TestGreeter" time="0.144" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="com.example.TestGreeter" time="0.12" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.265.b01-1.amzn2.0.1.x86_64/jre/lib/amd64"/>
@@ -41,11 +41,11 @@
     <property name="file.encoding" value="UTF-8"/>
     <property name="user.name" value="ec2-user"/>
     <property name="java.class.path" value="/usr/share/apache-maven/boot/plexus-classworlds-2.5.2.jar"/>
-    <property name="scope" value="regression"/>
+    <property name="scope" value="performance"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.265.b01-1.amzn2.0.1.x86_64/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean test -Dscope=regression"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean test -Dscope=performance"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -62,6 +62,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="com.example.TestGreeter" name="greetShouldIncludeTheOneBeingGreeted" time="0.012"/>
-  <testcase classname="com.example.TestGreeter" name="greetShouldIncludeGreetingPhrase" time="0.013"/>
+  <testcase classname="com.example.TestGreeter" name="greetShouldIncludeGreetingPhrase" time="0.014"/>
+  <testcase classname="com.example.TestGreeter" name="greetShouldIncludeTheOneBeingGreeted" time="0.005"/>
 </testsuite>

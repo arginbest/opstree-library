@@ -23,10 +23,10 @@ def call() {
         // }
             
         
-            stage("${p.test.name[0]}") {
+            // stage("${p.test.name[0]}") {
                 parallel {
                     dir("${p.test.testFolder[0]}") {
-                        sh "pwd"
+
                     stage('Projects Test 1') {
                         agent {
                             node { label "your jenkins label" }
@@ -44,8 +44,8 @@ def call() {
                             }
                         }
                     }
-                    }
-                    stage('Projects Test 2') {
+                    // }
+                    // stage('Projects Test 2') {
                         dir("${p.test.testFolder[2]}") {
                         agent {
                             node { label "your jenkins label" }
@@ -66,7 +66,7 @@ def call() {
                     }
                 }
             }
-        }
+        // }
     }
 }
                 
