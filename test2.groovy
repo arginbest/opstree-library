@@ -17,7 +17,7 @@ node{
             //     emailext body: 'need attention', subject: 'jenkins job', to: 'baurzhansiit@gmail.com'
             // }
         }
-        },
+        }
         // failFast: true
      
     
