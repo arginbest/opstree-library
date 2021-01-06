@@ -21,7 +21,7 @@ node{
         failFast: true
     } 
     
-    catch (err) {
+    catch (e) {
         currentBuild.result = "FAILED"
         notifyFailed()
     }
