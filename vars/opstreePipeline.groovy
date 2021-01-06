@@ -8,7 +8,7 @@ def call() {
        def p = pipelineConfig()
 
         stage('Prerequistes'){
-                sh  "echo ${p.ENVIRONMENT_NAME}"
+                sh  "echo ${p.build}"
                 
         }
 
