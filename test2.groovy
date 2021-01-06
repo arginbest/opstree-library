@@ -5,7 +5,7 @@ node{
                 // sh "exit 1"
             }
             stage('two') {
-                sh "echo world"
+                sh "echo world; exit 1"
             }
 
         }
