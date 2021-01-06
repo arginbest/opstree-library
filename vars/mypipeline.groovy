@@ -17,7 +17,7 @@ def call() {
                 }
         }
         dir("${p.build.projectFolder}") {
-            stage('"${p.test.performance}"'){
+            stage("deploy"){
                 sh "${p.deploy.deployCommand}"
                 }
         }
