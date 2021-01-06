@@ -1,21 +1,25 @@
 node{
-    parallel a: {
-         timestamps {
-        stage('one') {
-            sh "echo hello"
+    try {
+        parallel a: {
+            timestamps {
+            stage('one') {
+                sh "echo hello"
+            }
         }
+        }, b: {
+            timestamps {
+            stage('two') {
+                sh "echo world: exit 1"
+            }
+            stage('mail notification') {
+                emailext body: 'need attention', subject: 'jenkins job', to: 'baurzhansiit@gmail.com'
+            }
+        }
+        },
+        failFast: true
+    } catch (err) {
+        emailext body: "${err}", subject: 'fail', to: 'baurzhansiit@gmail.com'
     }
-    }, b: {
-        timestamps {
-        stage('two') {
-            sh "echo world"
-        }
-        stage('mail notification') {
-            emailext body: 'need attention', subject: 'jenkins job', to: 'baurzhansiit@gmail.com'
-        }
-    }
-    },
-    failFast: true
 }
 
 
