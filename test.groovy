@@ -19,7 +19,7 @@ node{
         },
         failFast: true
     } catch (err) {
-        mail bcc: '', body: "hello from jenkins you have ${err}", cc: '', from: 'Jenkins', replyTo: '', subject: 'fail stage', 
+        mail bcc: '', body: "hello from jenkins you have ${err}", cc: '', from: '', replyTo: '', subject: 'jenkins-test', 
             to: 'baurzhansiit@gmail.com'
         // emailext body: "${err}", subject: 'fail', to: 'baurzhansiit@gmail.com'
     }
