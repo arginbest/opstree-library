@@ -1,10 +1,3 @@
-def notifyFailed() {
-        mail bcc: '', 
-        body: "Check console output at '${env.BUILD_URL}' error output = ${err}", 
-        cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
-            to: 'baurzhansiit@gmail.com'
-        // emailext body: "${err}", subject: 'fail', to: 'baurzhansiit@gmail.com'
-    }
 node{
     try {
         parallel a: {
@@ -31,6 +24,13 @@ node{
     catch (err) {
         currentBuild.result = "FAILED"
         notifyFailed()
+    }
+    def notifyFailed() {
+        mail bcc: '', 
+        body: "Check console output at '${env.BUILD_URL}' error output = ${err}", 
+        cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
+            to: 'baurzhansiit@gmail.com'
+        // emailext body: "${err}", subject: 'fail', to: 'baurzhansiit@gmail.com'
     }
 }
 
