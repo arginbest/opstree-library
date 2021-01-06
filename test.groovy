@@ -25,8 +25,8 @@ node{
         currentBuild.result = "FAILED"
         notifyFailed()
     }
-    
-    def notifyFailed() {
+
+def notifyFailed() {
         mail bcc: '', 
         body: "Check console output at '${env.BUILD_URL}' error output = ${err}", 
         cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
