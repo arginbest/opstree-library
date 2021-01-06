@@ -11,11 +11,7 @@ node{
             sh "echo world"
         }
         stage('mail notification') {
-            emailext 
-                body: 'need attention', 
-                recipientProviders: [developers()], 
-                subject: 'jenkins job', 
-                to: 'baurzhansiit@gmail.com'
+            emailext body: 'need attention', recipientProviders: [developers()], subject: 'jenkins job', to: 'baurzhansiit@gmail.com'
         }
     }
     },
