@@ -1,28 +1,28 @@
 node{
-    
-        parallel a: {
-            timestamps {
+        timestamps {
             stage('one') {
                 sh "echo hello"
                 sh "exit 1"
             }
 
         }
-        }, b: {
-            timestamps {
+        timestamps {
             stage('two') {
                 sh "echo world"
             }
-            // stage('mail notification') {
-            //     emailext body: 'need attention', subject: 'jenkins job', to: 'baurzhansiit@gmail.com'
-            // }
-        }
-        }
-        // failFast: true
-     
-    
 
+        }
+       // failFast: true
 }
+
+
+
+
+
+
+        // stage('mail notification') {
+        //     emailext body: 'need attention', subject: 'jenkins job', to: 'baurzhansiit@gmail.com'
+        // }
         // currentBuild.result = "FAILED"
         // notifyFailed()
 
