@@ -21,10 +21,10 @@ def call() {
         //         sh "${p.deploy.deployCommand}"
         //         }
         // }
-        dir("${p.test.testFolder[0]}")
+        dir("${p.test.testFolder[0]}") {
             parallel a: {
                 timestamps {
-                stage("${p.test.name[0]}") {
+                stage("Run ${p.test.name[0]}") {
                     sh "${p.test.testCommand[0]}"
                 }
             }
@@ -36,6 +36,7 @@ def call() {
             }
             },
             failFast: true
+        }
     
     }
 }
