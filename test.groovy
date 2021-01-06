@@ -1,5 +1,3 @@
-node{
-
 def notifyFailed() {
         mail bcc: '', 
         body: "Check console output at '${env.BUILD_URL}' error output = ${err}", 
@@ -7,6 +5,7 @@ def notifyFailed() {
             to: 'baurzhansiit@gmail.com'
         // emailext body: "${err}", subject: 'fail', to: 'baurzhansiit@gmail.com'
     }
+node{
     try {
         parallel a: {
             timestamps {
