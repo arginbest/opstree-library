@@ -13,7 +13,7 @@ pipeline {
       }
     stage('deploy') { 
         steps {
-            sh "echo hello3; exit 1"      
+            sh "echo hello3"      
             }
       }
     stage('deploy2') { 
