@@ -1,7 +1,6 @@
 def call() {
 def var() {
-       def p = pipelineConfig()
-           return p
+       p = pipelineConfig()
        }
 pipeline {
   agent any
