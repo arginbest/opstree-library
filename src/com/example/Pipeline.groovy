@@ -15,13 +15,9 @@ class Pipeline {
 //           for example: script.node(), script.stage() etc
     
     script.node() {
-            script.stage('WorkflowScript') { 
-                script.sh  "echo hello"
-                script.dir('build/projectFolder') {
-                    script.stage('build') {
-                        script.sh "mvn clean test"
-                    }
-                }
+            script.stage('SCM') { 
+                script.sh  "checkout scm"
+                script.readYaml(file: "${WORKSPACE}/myconfig.yml") 
             }
     }
 
