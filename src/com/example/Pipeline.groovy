@@ -15,7 +15,8 @@ class Pipeline {
 //           for example: script.node(), script.stage() etc
    script.node() {
         script.stage('Read YAML file') {
-           script {def files = readYaml(file: 'config.yml')
+           script {Map pipelineConfig = readYaml(file: "${WORKSPACE}/myconfig.yml")
+                       return pipelineConfig
            }
         }
     }
