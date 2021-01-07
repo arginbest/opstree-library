@@ -13,13 +13,14 @@ class Pipeline {
 //    ===================== Your Code Starts Here =====================
 //    Note : use "script" to access objects from jenkins pipeline run (WorkflowScript passed from Jenkinsfile)
 //           for example: script.node(), script.stage() etc
-   script.call() {
+ 
        script.node() {
             script.stage('Read YAML file') {
+            script.pwd
             }
         
         }
-    }
+
    
    
    
