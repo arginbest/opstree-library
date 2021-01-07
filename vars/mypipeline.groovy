@@ -42,6 +42,9 @@ def call() {
             }
             }, failFast: true
         }
+        stage('CleanUp') {
+            cleanWs()
+        }
 
     
     }
