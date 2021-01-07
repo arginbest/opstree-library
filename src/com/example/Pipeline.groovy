@@ -16,8 +16,7 @@ class Pipeline {
  
        script.node() {
             script.stage('Read YAML file') {
-              script.echo "running in ${script.env.JENKINS_URL}"
-              script.def p = pwd
+              script.def p = '$pwd'
               script.sh "$p"
             }
         
