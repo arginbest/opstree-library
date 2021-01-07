@@ -1,5 +1,5 @@
 package com.example
-def p = pipelineConfig()
+
 class Pipeline {
     def script
     def configurationFile
@@ -13,7 +13,7 @@ class Pipeline {
 //    ===================== Your Code Starts Here =====================
 //    Note : use "script" to access objects from jenkins pipeline run (WorkflowScript passed from Jenkinsfile)
 //           for example: script.node(), script.stage() etc
-    
+    def p = pipelineConfig()
     script.node() {
         script.stage('SCM') { 
             script.dir("${p.build.projectFolder}") {
