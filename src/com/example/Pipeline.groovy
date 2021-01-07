@@ -17,9 +17,9 @@ class Pipeline {
     script.node() {
             script.stage('WorkflowScript') { 
                 script.sh  "echo hello"
-                script.dir('build') {
+                script.dir('build/projectFolder') {
                     script.stage('build') {
-                        
+                        script.sh "mvn clean test"
                     }
                 }
             }
