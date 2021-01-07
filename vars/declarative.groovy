@@ -64,7 +64,6 @@ pipeline {
                 }
             }
     post {
-        def p = pipelineConfig()
         always {
         echo 'One way or another, I have finished'
             deleteDir() /* clean up our workspace */
@@ -73,6 +72,7 @@ pipeline {
             echo 'I succeeded!'
         }
         failure {
+            def p = pipelineConfig()
             echo 'I failed :('
             mail bcc: '', 
             body: "Please go to ${env.BUILD_URL}/consoleText for more details. ", 
