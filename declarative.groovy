@@ -1,7 +1,7 @@
 def call() {
-def p = pipelineConfig()
 pipeline {
   agent any
+  def p = pipelineConfig()
     stages {
       stage('buld') { 
         steps {
