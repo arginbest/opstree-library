@@ -1,10 +1,10 @@
 package com.example
 
-class Pipeline {
+class Pipelin {
     def script
     def configurationFile
 
-    Pipeline(script, configurationFile) {
+    Pipelin(script, configurationFile) {
         this.script = script
         this.configurationFile = configurationFile
     }
