@@ -15,7 +15,7 @@ class Pipeline {
 //           for example: script.node(), script.stage() etc
    script.node() {
         script.stage('Read YAML file') {
-           script {def files = readYaml(glob: 'config1.yml')
+           script {def files = readYaml(file: 'config.yml')
            }
         }
     }
