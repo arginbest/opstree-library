@@ -17,7 +17,7 @@ class Pipeline {
     script.node() {
             script.stage('SCM') { 
               script.configurationFile
-                script.readYaml(file: "script.configurationFile") 
+                script.replace(dir:"database", includes:"*.*", token:"tokenName", value:"${value}")
             }
     }
 
