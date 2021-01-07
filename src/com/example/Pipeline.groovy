@@ -17,8 +17,7 @@ class Pipeline {
     script.node() {
             script.stage('WorkflowScript') { 
                 script.sh  "echo hello"
-                script.readYaml(file: 'config.yml')
-
+                script.dir('build')
             }
     }
 
