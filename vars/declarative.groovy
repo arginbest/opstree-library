@@ -3,12 +3,12 @@ pipeline {
   agent any
   parameters {
             string(name: "p", defaultValue: "pipelineConfig()")
-        }
+        
     stages {
         stage('Buld') { 
             steps {
                 script{
-                    def p = pipelineConfig()
+                   
                     dir("${p.build.projectFolder}") {
                         sh "${p.build.buildCommand}"
                     }
@@ -67,6 +67,7 @@ pipeline {
                 }
             }
         }
+    }
     post {
         always {
         echo 'One way or another, I have finished'
