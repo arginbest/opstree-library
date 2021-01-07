@@ -37,27 +37,27 @@ pipeline {
             steps {
                 script{
                     def p = pipelineConfig()
-                    parallel( "${p.test.testFolder[0]}": {
+                    parallel( "${p.test.name[0]}": {
                                            timestamps {
                                                 dir("${p.test.testFolder[0]}") {
                                                 sh "${p.test.testCommand[0]}"
                                                }
                                            } 
                                         },
-                                    'second': {
-                                            timestamps {
-                                               dir("${p.test.testFolder[1]}") {
-                                                sh "${p.test.testCommand[1]}"
-                                                }      
-                                            }
-                                        }, 
-                                     'third': { 
-                                            timestamps {
-                                                dir("${p.test.testFolder[2]}") {
-                                                sh "${p.test.testCommand[2]}"
-                                                }
-                                            }
+                            "${p.test.name[1]}": {
+                                    timestamps {
+                                        dir("${p.test.testFolder[1]}") {
+                                        sh "${p.test.testCommand[1]}"
+                                        }      
+                                    }
+                                }, 
+                                "${p.test.name[2]}": { 
+                                    timestamps {
+                                        dir("${p.test.testFolder[2]}") {
+                                        sh "${p.test.testCommand[2]}"
                                         }
+                                    }
+                                }
                              )
                         }
                     }
