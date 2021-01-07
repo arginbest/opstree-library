@@ -1,6 +1,6 @@
 Map pipelineConfig = readYaml(file: "${WORKSPACE}/myconfig.yml")
   return pipelineConfig
-
+def call() {
     node() {
 
             stage('Checkout') {
@@ -47,3 +47,4 @@ Map pipelineConfig = readYaml(file: "${WORKSPACE}/myconfig.yml")
 
     
     }
+}
