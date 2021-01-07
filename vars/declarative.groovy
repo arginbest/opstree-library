@@ -1,12 +1,14 @@
 def call() {
 pipeline {
   agent any
-  def p = pipelineConfig()
     stages {
       stage('buld') { 
         steps {
+            script{
+                def p = pipelineConfig()           
             sh "echo hello" 
-            sh "${p.build.buildCommand}"     
+            sh "${p.build.buildCommand}"
+            }     
             }
       }
     stage('test') { 
