@@ -38,20 +38,20 @@ pipeline {
                 script{
                     def p = pipelineConfig()
                     parallel 
-                             "${p.test.name[0]}" : {
+                             first: {
                                   timestamps {
                                     dir("${p.test.testFolder[0]}") {
                                         sh "${p.test.testCommand[0]}"
                                     }
                                 }, 
-                                "${p.test.name[1]}" : {
+                                'second': {
                                          timestamps {
                                         dir("${p.test.testFolder[1]}") {
                                             sh "${p.test.testCommand[1]}"
                                         }      
                                     }
                                 }, 
-                                "${p.test.name[2]}" : { 
+                                'tree test': { 
                                           timestamps {
                                         dir("${p.test.testFolder[2]}") {
                                             sh "${p.test.testCommand[2]}"
