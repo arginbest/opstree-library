@@ -7,7 +7,7 @@ node {
             sh "echo world"
         }
          stage('tree') {
-            sh "echo world"
+            sh "echo world; exit 1"
         }
          stage('four') {
             sh "echo world"
