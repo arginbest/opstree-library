@@ -14,6 +14,7 @@ class Pipeline {
 //    Note : use "script" to access objects from jenkins pipeline run (WorkflowScript passed from Jenkinsfile)
 //           for example: script.node(), script.stage() etc
    script.node() {
+       WorkflowScript('~/')
        script.stage('Read YAML file') {
         script.steps {
            script{ datas = readYaml (file: 'config.yml') }
