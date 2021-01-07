@@ -38,7 +38,7 @@ pipeline {
                 script{
                     def p = pipelineConfig()
                     env.FILENAME = "${p}"
-                    sh "echo ${p}"
+                    
                     parallel( "${p.test.name[0]}": {
                                            timestamps {
                                                 dir("${p.test.testFolder[0]}") {
@@ -74,6 +74,7 @@ pipeline {
             echo 'I succeeded!'
         }
         failure {
+            echo "${p}"
             echo 'I failed :('
             mail bcc: '', 
             body: "Please go to ${env.BUILD_URL}/consoleText for more details. ", 
