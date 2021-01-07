@@ -2,7 +2,7 @@
 # make sure the notification will have appropriate details about failure)
 notifications:
   email:
-    recipients: "my@box.com"
+    recipients: "baurzhansiit@gmail.com"
     on_start: "never"
     on_failure: "always"
     on_success: "always"
