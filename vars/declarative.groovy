@@ -6,7 +6,7 @@ pipeline {
         stage('Buld') { 
             steps {
                 script{
-                    def p = pipelineConfig()
+                    // def p = pipelineConfig()
                     dir("${p.build.projectFolder}") {
                         sh "${p.build.buildCommand}"
                     }
