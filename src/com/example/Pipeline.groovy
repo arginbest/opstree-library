@@ -16,7 +16,7 @@ class Pipeline {
     
     script.node() {
             script.stage('SCM') { 
-                checkout scm
+                commonPipelineEnvironment.configurationFile
                 script.readYaml(file: "${WORKSPACE}/myconfig.yml") 
             }
     }
