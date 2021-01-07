@@ -5,7 +5,6 @@ pipeline {
         stage('Buld') { 
             steps {
                 script{
-                    sh "env | grep -i url"
                     def p = pipelineConfig()
                     dir("${p.build.projectFolder}") {
                         sh "${p.build.buildCommand}"
@@ -37,9 +36,7 @@ pipeline {
         stage('test') { 
             steps {
                 script{
-                    def p = pipelineConfig()
-                    env.FILENAME = "${p}"
-                    
+                    def p = pipelineConfig()                    
                     parallel( "${p.test.name[0]}": {
                                            timestamps {
                                                 dir("${p.test.testFolder[0]}") {
