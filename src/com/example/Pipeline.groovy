@@ -8,7 +8,7 @@ class Pipeline {
         this.script = script
         this.configurationFile = configurationFile
     }
-
+    def p = pipelineConfig()
     def execute() {
 //    ===================== Your Code Starts Here =====================
 //    Note : use "script" to access objects from jenkins pipeline run (WorkflowScript passed from Jenkinsfile)
