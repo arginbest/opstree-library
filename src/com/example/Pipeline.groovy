@@ -14,9 +14,9 @@ class Pipeline {
 //    Note : use "script" to access objects from jenkins pipeline run (WorkflowScript passed from Jenkinsfile)
 //           for example: script.node(), script.stage() etc
 script.node() {
-    script.stage('hello') {
-        sh "echo Hello"
+    script.sh { "echo Hello" 
     }
+    
 }
 
 // pipeline {
