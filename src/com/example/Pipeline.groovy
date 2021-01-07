@@ -15,7 +15,7 @@ class Pipeline {
 //           for example: script.node(), script.stage() etc
    script.node() {
         script.stage('Read YAML file') {
-           def files = findAll(glob: '**/config.yml')
+           def files = find(glob: '**/config.yml')
         }
     }
    
