@@ -3,16 +3,15 @@ pipeline {
   agent any
     stages {
       stage('buld') { 
-        dir("${p.build.projectFolder}") {
         steps {
             script{
-                def p = pipelineConfig()           
-            sh "${p.build.buildCommand}"
-
-            }     
+                def p = pipelineConfig()
+                dir("${p.build.projectFolder}") {
+                sh "${p.build.buildCommand}"
+                }
+            }
         }
-      }
-      }
+    }
     stage('test') { 
         steps {
             sh "echo hello2"      
