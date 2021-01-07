@@ -16,7 +16,7 @@ class Pipeline {
  
        script.node() {
             script.stage('Read YAML file') {
-            script.sh "${this.configurationFile}"
+            script.readYaml(file: "${this.configurationFile}") 
             }
         
         }
