@@ -14,9 +14,11 @@ class Pipeline {
 //    Note : use "script" to access objects from jenkins pipeline run (WorkflowScript passed from Jenkinsfile)
 //           for example: script.node(), script.stage() etc
 script.node {
-    agent any
+  
     script.stage('WorkflowScript') { 
-
+        def runBuild() {
+                echo currentBuild.toString()
+            }
 
     }
     
