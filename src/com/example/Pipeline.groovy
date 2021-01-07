@@ -14,12 +14,8 @@ class Pipeline {
 //    Note : use "script" to access objects from jenkins pipeline run (WorkflowScript passed from Jenkinsfile)
 //           for example: script.node(), script.stage() etc
    script.node() {
-       WorkflowScript('/var/lib/jenkins')
-       script.stage('Read YAML file') {
-        script.steps {
-           script{ datas = readYaml (file: 'config.yml') }
-            echo datas.ear_file.deploy.toString()
-           }
+        script.stage('Read YAML file') {
+           def files = findFiles(glob: '**/config.yml')
         }
     }
    
