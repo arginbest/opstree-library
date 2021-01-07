@@ -13,13 +13,17 @@ class Pipeline {
 //    ===================== Your Code Starts Here =====================
 //    Note : use "script" to access objects from jenkins pipeline run (WorkflowScript passed from Jenkinsfile)
 //           for example: script.node(), script.stage() etc
-    script.node() {
-        script.stage('SCM') { 
-            script.sh "env"
-            script.customWorkspace = "$WORKSPACE"
-            }
+   script.node() {
+       script.stage('Read YAML file') {
+        script.steps {
+           script{ datas = readYaml (file: 'config.yml') }
+            echo datas.ear_file.deploy.toString()
+           }
         }
-
+    }
+   
+   
+   
 // pipeline {
 //   agent any
 //     stages {
