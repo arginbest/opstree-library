@@ -2,32 +2,63 @@ def call() {
 pipeline {
   agent any
     stages {
-      stage('buld') { 
-        steps {
-            script{
-                def p = pipelineConfig()
-                dir("${p.build.projectFolder}") {
-                sh "${p.build.buildCommand}"
+        stage('Buld') { 
+            steps {
+                script{
+                    def p = pipelineConfig()
+                    dir("${p.build.projectFolder}") {
+                        sh "${p.build.buildCommand}"
+                    }
                 }
             }
         }
-    }
-    stage('test') { 
-        steps {
-            sh "echo hello2"      
+        stage('Database') { 
+            steps {
+                script{
+                    dir("${p.database.databaseFolder}") {
+                        sh "${p.database.databaseCommand}"
+                    }
+                }      
             }
-      }
-    stage('deploy') { 
-        steps {
-            sh "echo hello3"      
+        }
+        stage('Deploy') { 
+            steps {
+                script{
+                    dir("${p.build.projectFolder}") {
+                        sh "${p.deploy.deployCommand}"
+                    }
+                }
             }
-      }
-    stage('deploy2') { 
-        steps {
-            sh "echo hello4"      
+        }
+
+        stage('Test') { 
+            steps {
+                script{
+                        dir("${p.test.testFolder[0]}") {
+                            sh "${p.test.testCommand[0]}"
+                        }
+                    }      
+                }
             }
-      }
-    }
+        stage('Test') { 
+            steps {
+                script{
+                        dir("${p.test.testFolder[1]}") {
+                            sh "${p.test.testCommand[1]}"
+                        }
+                    }      
+                }
+            }
+        stage('Test') { 
+            steps {
+                script{
+                        dir("${p.test.testFolder[2]}") {
+                            sh "${p.test.testCommand[2]}"
+                        }
+                    }      
+                }
+            }
+        }
     post {
         always {
         echo 'One way or another, I have finished'
