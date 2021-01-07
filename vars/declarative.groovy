@@ -79,17 +79,24 @@ pipeline {
                 deleteDir()
             }
             success {
-                mail bcc: '', 
-                body: "Please go to ${env.BUILD_URL}/consoleText for more details. ", 
-                cc: '', from: '', replyTo: '', subject: "CHANGES MADE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
-                to: "my@box.com"
-            }
-            failure {
-                echo 'I failed :('
+                echo 'JOB SUCCESS'
                 mail bcc: '', 
                 body: """Please go to ${env.BUILD_URL}/consoleText for more details.,
-                additional info: Name of the agent - ${env.NODE_NAME},
-                The commit hash being checked out - ${env.GIT_COMMITTER_NAME}, ${env.GIT_COMMIT} """, 
+                additional info: 
+                NODE_NAME - ${env.NODE_NAME},
+                GIT_COMMITTER_NAME ${env.GIT_COMMITTER_NAME}, 
+                GIT_COMMITTER_EMAIL = ${env.GIT_COMMITTER_EMAIL} """, 
+                cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
+                to: "baurzhansiit@gmail.com"
+            }
+            failure {
+                echo 'Stage FAIL'
+                mail bcc: '', 
+                body: """Please go to ${env.BUILD_URL}/consoleText for more details.,
+                additional info: 
+                NODE_NAME - ${env.NODE_NAME},
+                GIT_COMMITTER_NAME ${env.GIT_COMMITTER_NAME}, 
+                GIT_COMMITTER_EMAIL = ${env.GIT_COMMITTER_EMAIL} """, 
                 cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
                 to: "baurzhansiit@gmail.com"
             }
