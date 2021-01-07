@@ -1,2 +1,23 @@
-@Library ('opstree-library@main') _
-mypipeline()
+@Library('test-pipeline-library') _
+import com.example.*
+
+new Pipeline(this, "config.yml").execute()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// @Library ('opstree-library@main') _
+// mypipeline()
