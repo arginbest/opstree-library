@@ -43,14 +43,14 @@ pipeline {
                                     dir("${p.test.testFolder[0]}") {
                                         sh "${p.test.testCommand[0]}"
                                     }
-                                }, 
+                                } 
                                 'second': {
                                          timestamps {
                                         dir("${p.test.testFolder[1]}") {
                                             sh "${p.test.testCommand[1]}"
                                         }      
                                     }
-                                }, 
+                                } 
                                 'tree test': { 
                                           timestamps {
                                         dir("${p.test.testFolder[2]}") {
