@@ -1,5 +1,5 @@
 package com.example
-call 
+
 class Pipeline {
     def script
     def configurationFile
