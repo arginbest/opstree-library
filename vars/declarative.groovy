@@ -51,7 +51,7 @@ pipeline {
                                                 }      
                                             }
                                         }, 
-                                     'test': { 
+                                     'third': { 
                                             timestamps {
                                                 dir("${p.test.testFolder[2]}") {
                                                 sh "${p.test.testCommand[2]}"
