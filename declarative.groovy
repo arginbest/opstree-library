@@ -38,6 +38,10 @@ pipeline {
 
         changed {
             echo 'Things were different before...'
+            mail bcc: '', 
+        body: "Check changes at '${env.BUILD_URL}'", 
+        cc: '', from: '', replyTo: '', subject: "changes: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
+        to: 'baurzhansiit@gmail.com'
         }
     }
 }
