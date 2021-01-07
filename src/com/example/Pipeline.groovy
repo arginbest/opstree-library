@@ -17,6 +17,7 @@ class Pipeline {
         script.stage('Read YAML file') {
            script {Map pipelineConfig = readYaml(file: "${WORKSPACE}/myconfig.yml")
                        return pipelineConfig
+                def p = pipelineConfig
            }
         }
     }
