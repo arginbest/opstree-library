@@ -32,47 +32,55 @@ pipeline {
                 }
             }
         }
-        parallel a: {
-                timestamps {
-        stage("${HOME}") { 
+        
+        stage('test') { 
             steps {
                 script{
-                    def p = pipelineConfig()
-                        dir("${p.test.testFolder[0]}") {
-                            sh "${p.test.testCommand[0]}"
+                    parallel a: {
+                          timestamps {
+                                def p = pipelineConfig()
+                                    dir("${p.test.testFolder[0]}") {
+                                        sh "${p.test.testCommand[0]}"
+                                            }
+                                    }
+                                    b: {
+                                timestamps {
+                                    def p = pipelineConfig()
+                                        dir("${p.test.testFolder[1]}") {
+                                            sh "${p.test.testCommand[1]}"
+                                    }      
+                                    }
+                                }
+                            }
                         }
-                    }      
+                    }
                 }
-            }
-        }
-        }, b: {
-                timestamps {
-        stage('') { 
-            steps {
-                script{
-                    def p = pipelineConfig()
-                        dir("${p.test.testFolder[1]}") {
-                            sh "${p.test.testCommand[1]}"
-                        }
-                    }      
-                }
-            }
-                }
-        }, c: {
-                timestamps {
-        stage('Test 3') { 
-            steps {
-                script{
-                    def p = pipelineConfig()
-                        dir("${p.test.testFolder[2]}") {
-                            sh "${p.test.testCommand[2]}"
-                        }
-                    }      
-                }
-            }
-            }
-        }
-    }
+            }, 
+
+        // stage('') { 
+        //     steps {
+        //         script{
+        //             def p = pipelineConfig()
+        //                 dir("${p.test.testFolder[1]}") {
+        //                     sh "${p.test.testCommand[1]}"
+        //                 }
+        //             }      
+        //         }
+        //     }
+        //         }
+        // }, c: {
+        //         timestamps {
+        // stage('Test 3') { 
+        //     steps {
+        //         script{
+        //             def p = pipelineConfig()
+        //                 dir("${p.test.testFolder[2]}") {
+        //                     sh "${p.test.testCommand[2]}"
+        //                 }
+        //             }      
+        //         }
+        //     }
+        //     }
     post {
         always {
         echo 'One way or another, I have finished'
