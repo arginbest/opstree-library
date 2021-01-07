@@ -38,26 +38,27 @@ pipeline {
                 script{
                     def p = pipelineConfig()
                     parallel 
-                             first: {
-                                  timestamps {
-                                    dir("${p.test.testFolder[0]}") {
-                                        sh "${p.test.testCommand[0]}"
-                                    }
-                                } 
-                                'second': {
-                                         timestamps {
-                                        dir("${p.test.testFolder[1]}") {
-                                            sh "${p.test.testCommand[1]}"
-                                        }      
-                                    }
-                                } 
-                                'tree test': { 
-                                          timestamps {
-                                        dir("${p.test.testFolder[2]}") {
-                                            sh "${p.test.testCommand[2]}"
+                                    first: {
+                                           timestamps {
+                                                dir("${p.test.testFolder[0]}") {
+                                                sh "${p.test.testCommand[0]}"
+                                               }
+                                           } 
                                         }
-                                    }
-                            }
+                                    'second': {
+                                            timestamps {
+                                               dir("${p.test.testFolder[1]}") {
+                                                sh "${p.test.testCommand[1]}"
+                                                }      
+                                            }
+                                        } 
+                                    'tree test': { 
+                                            timestamps {
+                                                dir("${p.test.testFolder[2]}") {
+                                                sh "${p.test.testCommand[2]}"
+                                                }
+                                            }
+                                        }
                         }
                     }
                 }
