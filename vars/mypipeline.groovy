@@ -1,11 +1,13 @@
-def call() {
+Map pipelineConfig = readYaml(file: "${WORKSPACE}/myconfig.yml")
+  return pipelineConfig
+
     node() {
 
             stage('Checkout') {
                 checkout scm
             }
         def p = pipelineConfig()
-        sh "printenv"
+        
         dir("${p.build.projectFolder}") {
             stage('build'){
                 sh "${p.build.buildCommand}"
@@ -45,4 +47,3 @@ def call() {
 
     
     }
-}       
