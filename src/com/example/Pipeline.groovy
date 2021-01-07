@@ -16,8 +16,7 @@ class Pipeline {
     
     script.node() {
             script.stage('SCM') { 
-           
-                script.replace(dir:"database", includes:"*.*", token:"tokenName", value:"${value}")
+                script.env
             }
     }
 
