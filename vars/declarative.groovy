@@ -50,7 +50,9 @@ pipeline {
                                             sh "${p.test.testCommand[1]}"
                                         }      
                                     }
-                                }
+                                }, c: def p = pipelineConfig()
+                                        dir("${p.test.testFolder[2]}") {
+                                            sh "${p.test.testCommand[2]}"
                             }
                         }
                     }
