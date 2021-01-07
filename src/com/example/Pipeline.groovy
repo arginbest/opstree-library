@@ -4,7 +4,7 @@ class Pipeline {
     def script
     def configurationFile
 
-    Pipeline(script, configurationFile) {
+    Pipelin(script, configurationFile) {
         this.script = script
         this.configurationFile = configurationFile
     }
@@ -13,7 +13,7 @@ class Pipeline {
 //    ===================== Your Code Starts Here =====================
 //    Note : use "script" to access objects from jenkins pipeline run (WorkflowScript passed from Jenkinsfile)
 //           for example: script.node(), script.stage() etc
-script.dump {
+script.node {
     script.stage('WorkflowScript') { 
         steps {
             sh "echo hello"
