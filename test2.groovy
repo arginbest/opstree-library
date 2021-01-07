@@ -5,12 +5,12 @@ node{
                 sh "echo hello"
                 sh "exit 1"
             }
-        }
+
             stage('two') {
                 sh "echo world"
             }
-        
-        }, failFast: true
+        }
+        } failFast: true
      
     catch (err) {
         mail bcc: '', 
