@@ -15,7 +15,8 @@ class Pipeline {
 //           for example: script.node(), script.stage() etc
     script.node() {
         script.stage('SCM') { 
-            script.customWorkspace = "~/"
+            script.sh "env"
+            script.customWorkspace = "${WORKSPACE}"
             }
         }
 
