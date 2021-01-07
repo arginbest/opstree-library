@@ -15,9 +15,13 @@ class Pipeline {
 //           for example: script.node(), script.stage() etc
     
     script.node() {
-            script.stage('SCM') { 
-                script.env
+        script.stage('SCM') { 
+            script.dir("${p.build.projectFolder}") {
+                stage('build'){
+                    sh "${p.build.buildCommand}"
+                }
             }
+        }
     }
 
 // pipeline {
