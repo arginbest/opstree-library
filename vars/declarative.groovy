@@ -38,6 +38,7 @@ pipeline {
                 script{
                     def p = pipelineConfig()
                     parallel( "${p.test.name[0]}": {
+                        def p = pipelineConfig()
                                            timestamps {
                                                 dir("${p.test.testFolder[0]}") {
                                                 sh "${p.test.testCommand[0]}"
