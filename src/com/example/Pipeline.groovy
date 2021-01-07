@@ -1,5 +1,5 @@
 package com.example
-
+call 
 class Pipeline {
     def script
     def configurationFile
@@ -15,7 +15,8 @@ class Pipeline {
 //           for example: script.node(), script.stage() etc
    script.node() {
         script.stage('Read YAML file') {
-           def files = find(glob: '**/config.yml')
+           script {def files = readYaml(glob: 'config.yml')
+           }
         }
     }
    
