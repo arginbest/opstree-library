@@ -1,6 +1,9 @@
 def call() {
 pipeline {
   agent any
+  parameters {
+            string(name: "p", defaultValue: "pipelineConfig()")
+        }
     stages {
         stage('Buld') { 
             steps {
