@@ -13,7 +13,7 @@ pipeline {
       }
     stage('deploy') { 
         steps {
-            sh "echo hello444444444444ddddd"      
+            sh "echo hello444444444444dddsddddd"      
             }
       }  
     }
