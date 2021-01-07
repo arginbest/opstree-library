@@ -2,8 +2,8 @@ def call() {
 pipeline {
   agent any
     stages {
-      dir("${p.build.projectFolder}") {
       stage('buld') { 
+        dir("${p.build.projectFolder}") {
         steps {
             script{
                 def p = pipelineConfig()           
