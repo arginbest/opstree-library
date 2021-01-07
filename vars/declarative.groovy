@@ -2,14 +2,16 @@ def call() {
 pipeline {
   agent any
     stages {
+      dir("${p.build.projectFolder}") {
       stage('buld') { 
         steps {
             script{
                 def p = pipelineConfig()           
-            sh "echo hello" 
             sh "${p.build.buildCommand}"
+
             }     
-            }
+        }
+      }
       }
     stage('test') { 
         steps {
