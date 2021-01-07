@@ -1,22 +1,50 @@
-node{
-        timestamps {
-            stage('one') {
-                sh "echo hello"
-            }
-            stage('two') {
-                sh "echo world"
-            }
+def buildResults = [:]
 
+void nofify_email(Map results) {
+    echo "TEST SIMULATE notify: ${results.toString()}"
+}
+
+pipeline {
+
+    agent any
+
+    stages {
+
+        stage('Build testJob') {
+
+            steps {
+                script {
+                    def jobBuild = build job: 'testJob', propagate: false
+
+                    def jobResult = jobBuild.getResult()
+
+                    echo "Build of 'testJob' returned result: ${jobResult}"
+
+                    buildResults['testJob'] = jobResult
+
+                    if (jobResult != 'SUCCESS') {
+                        error("testJob failed with result: ${jobResult}")
+                    }
+                }
+            }
         }
-    //    failFast: true
+    }
+
     post {
+
+        always {
+            echo "Build results: ${buildResults.toString()}"
+        }
+
+        success {
+            echo "All builds completed OK"
+        }
+
         failure {
             echo "A job failed"
+
             script {
-                mail bcc: '', 
-                body: "Check console output at '${env.BUILD_URL}' error output = ${err}", 
-                cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
-                to: 'baurzhansiit@gmail.com'
+                nofify_email(buildResults)
             }
         }
     }
