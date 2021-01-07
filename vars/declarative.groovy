@@ -38,7 +38,6 @@ pipeline {
                 script{
                     def p = pipelineConfig()
                     parallel( "${p.test.name[0]}": {
-                        def p = pipelineConfig()
                                            timestamps {
                                                 dir("${p.test.testFolder[0]}") {
                                                 sh "${p.test.testCommand[0]}"
@@ -65,6 +64,7 @@ pipeline {
                 }
             }
     post {
+        def p = pipelineConfig()
         always {
         echo 'One way or another, I have finished'
             deleteDir() /* clean up our workspace */
