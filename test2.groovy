@@ -1,15 +1,12 @@
 node{
     try {
-            timestamps {
             stage('one') {
                 sh "echo hello"
-                sh "exit 1"
             }
 
             stage('two') {
                 sh "echo world"
             }
-        }
         } failFast: true
      
     catch (err) {
