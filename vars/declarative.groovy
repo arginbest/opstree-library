@@ -41,14 +41,14 @@ pipeline {
                                 def p = pipelineConfig()
                                     dir("${p.test.testFolder[0]}") {
                                         sh "${p.test.testCommand[0]}"
-                                            }
+                                        }
                                     }
                                     b: {
                                 timestamps {
                                     def p = pipelineConfig()
                                         dir("${p.test.testFolder[1]}") {
                                             sh "${p.test.testCommand[1]}"
-                                    }      
+                                        }      
                                     }
                                 }
                             }
