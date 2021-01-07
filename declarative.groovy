@@ -5,7 +5,8 @@ pipeline {
     stages {
       stage('buld') { 
         steps {
-            sh "echo hello"      
+            sh "echo hello" 
+            sh "${p.build.buildCommand}"     
             }
       }
     stage('test') { 
