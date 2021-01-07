@@ -13,22 +13,27 @@ class Pipeline {
 //    ===================== Your Code Starts Here =====================
 //    Note : use "script" to access objects from jenkins pipeline run (WorkflowScript passed from Jenkinsfile)
 //           for example: script.node(), script.stage() etc
+script.node() {
+    this.stage('hello') {
+        sh "echo Hello"
+    }
+}
 
-pipeline {
-  agent any
-    stages {
-      stage('whatever') {
-        steps {
-          sh "echo Hello"
-        }
-      }
-    }
-    post {
-        always {
-            sh "echo Hello"
-        }
-      }
-    }
+// pipeline {
+//   agent any
+//     stages {
+//       stage('whatever') {
+//         steps {
+//           sh "echo Hello"
+//         }
+//       }
+//     }
+//     post {
+//         always {
+//             sh "echo Hello"
+//         }
+//       }
+//     }
 //    ===================== Parse configuration file ==================
 
 //    ===================== Run pipeline stages =======================
