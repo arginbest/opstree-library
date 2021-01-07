@@ -10,7 +10,7 @@ pipeline {
     post {
         always {
         mail bcc: '', 
-        body: "Check console output at '${env.BUILD_URL}' error output = ${err}", 
+        body: "Check console output at '${env.BUILD_URL}'", 
         cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
         to: 'baurzhansiit@gmail.com'
         }
