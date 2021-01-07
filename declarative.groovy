@@ -5,13 +5,17 @@ pipeline {
         steps {
             sh "echo hello"      
             }
+      }
+    stage('test') { 
         steps {
-            sh "echo hello"      
-            }
-        steps('tree') {
-            sh "echo hello"      
+            sh "echo hello8888888888888"      
             }
       }
+    stage('deploy') { 
+        steps {
+            sh "echo hello444444444444"      
+            }
+      }  
     }
     post {
         always {
