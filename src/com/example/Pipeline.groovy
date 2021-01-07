@@ -15,6 +15,9 @@ class Pipeline {
 //           for example: script.node(), script.stage() etc
  
        script.node() {
+           stage("Pull SCM") {
+            script.git 'https://github.com/arginbest/opstree-library.git'
+        }
             script.stage('Read YAML file') {
             script.readYaml(file: "${this.configurationFile}") 
             }
