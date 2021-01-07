@@ -16,9 +16,7 @@ class Pipeline {
     
     script.node() {
             script.stage('WorkflowScript') { 
-               script.steps {
                    sh "hello"
-               }
             }
     }
 
