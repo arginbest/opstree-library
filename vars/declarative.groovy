@@ -1,4 +1,3 @@
-def p = pipelineConfig()
 def call() {
 pipeline {
   agent any
@@ -6,7 +5,7 @@ pipeline {
         stage('Buld') { 
             steps {
                 script{
-                    // def p = pipelineConfig()
+                    def p = pipelineConfig()
                     dir("${p.build.projectFolder}") {
                         sh "${p.build.buildCommand}"
                     }
@@ -66,29 +65,23 @@ pipeline {
                     }
                 }
             }
-    post {
-        always {
-        echo 'One way or another, I have finished'
-            deleteDir() /* clean up our workspace */
-        }
-        success {
-            echo 'I succeeded!'
-        }
-        failure {
-            echo "${p}"
-            echo 'I failed :('
-            mail bcc: '', 
-            body: "Please go to ${env.BUILD_URL}/consoleText for more details. ", 
-            cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
-            to: "${p.notifications.email.recipients}"
-        }
-        changed {
-            echo 'Things were different before...'
-            mail bcc: '', 
-            body: "Please go to ${env.BUILD_URL}/consoleText for more details. ", 
-            cc: '', from: '', replyTo: '', subject: "CHANGES MADE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
-            to: "${p.notifications.email.recipients}"
+        post {
+            always {
+                deleteDir()
+            }
+            success {
+                mail bcc: '', 
+                body: "Please go to ${env.BUILD_URL}/consoleText for more details. ", 
+                cc: '', from: '', replyTo: '', subject: "CHANGES MADE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
+                to: "my@box.com"
+            }
+            failure {
+                echo 'I failed :('
+                mail bcc: '', 
+                body: "Please go to ${env.BUILD_URL}/consoleText for more details. ", 
+                cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
+                to: "baurzhansiit@gmail.com"
+            }
         }
     }
-}
 }
