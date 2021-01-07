@@ -31,7 +31,7 @@ pipeline {
             }
         }
 
-        stage('Test') { 
+        stage('Test 1') { 
             steps {
                 script{
                         dir("${p.test.testFolder[0]}") {
@@ -40,7 +40,7 @@ pipeline {
                     }      
                 }
             }
-        stage('Test') { 
+        stage('Test 2') { 
             steps {
                 script{
                         dir("${p.test.testFolder[1]}") {
@@ -49,7 +49,7 @@ pipeline {
                     }      
                 }
             }
-        stage('Test') { 
+        stage('Test 3') { 
             steps {
                 script{
                         dir("${p.test.testFolder[2]}") {
