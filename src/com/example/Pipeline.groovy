@@ -16,9 +16,11 @@ class Pipeline {
  
        script.node() {
             script.stage('Read YAML file') {
-              script.def p = 'one'
-              script.sh "${p}"
+            script.def p = readYaml(file: "${WORKSPACE}/config.yml")
+                 script.return p
             }
+            script.stage('reread YAML file')
+            script.sh "${p}"
         
         }
 
