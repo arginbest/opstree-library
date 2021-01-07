@@ -16,9 +16,7 @@ class Pipeline {
  
        script.node() {
             script.stage('Read YAML file') {
-            script.step {
-                 "hello from step"
-            }
+              script.filePath('~/')
             }
         
         }
