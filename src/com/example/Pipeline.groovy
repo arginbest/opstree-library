@@ -16,7 +16,7 @@ class Pipeline {
 script.node() {
     script.stage('hello') {
 
-}
+    }
 //    ===================== Parse configuration file ==================
 
 //    ===================== Run pipeline stages =======================
@@ -24,4 +24,3 @@ script.node() {
 //    ===================== End pipeline ==============================
     }
 }
-
