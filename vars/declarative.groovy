@@ -1,3 +1,4 @@
+def p = pipelineConfig()
 def call() {
 pipeline {
   agent any
@@ -5,7 +6,7 @@ pipeline {
         stage('Buld') { 
             steps {
                 script{
-                    def p = pipelineConfig()
+                    
                     dir("${p.build.projectFolder}") {
                         sh "${p.build.buildCommand}"
                     }
@@ -15,6 +16,7 @@ pipeline {
         stage('Database') { 
             steps {
                 script{
+                    def p = pipelineConfig()
                     dir("${p.database.databaseFolder}") {
                         sh "${p.database.databaseCommand}"
                     }
@@ -24,6 +26,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 script{
+                    def p = pipelineConfig()
                     dir("${p.build.projectFolder}") {
                         sh "${p.deploy.deployCommand}"
                     }
@@ -34,6 +37,7 @@ pipeline {
         stage('Test 1') { 
             steps {
                 script{
+                    def p = pipelineConfig()
                         dir("${p.test.testFolder[0]}") {
                             sh "${p.test.testCommand[0]}"
                         }
@@ -43,6 +47,7 @@ pipeline {
         stage('Test 2') { 
             steps {
                 script{
+                    def p = pipelineConfig()
                         dir("${p.test.testFolder[1]}") {
                             sh "${p.test.testCommand[1]}"
                         }
