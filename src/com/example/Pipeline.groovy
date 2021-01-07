@@ -15,9 +15,7 @@ class Pipeline {
 //           for example: script.node(), script.stage() etc
 script.node {
     script.stage('WorkflowScript') { 
-        steps {
-            sh "echo hello"
-        }
+      
     }
     
 }
