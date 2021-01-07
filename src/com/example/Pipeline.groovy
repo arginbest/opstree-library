@@ -24,7 +24,7 @@ class Pipeline {
                 script.readYaml(file: "${this.configurationFile}") 
                 }
                 script.stage('cleanUp') {
-                    script.step {
+                    script.step('step') {
                         script.cleanWs
                     }
                 }
