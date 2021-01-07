@@ -1,4 +1,4 @@
-
+def call() {
 pipeline {
   agent any
     stages {
@@ -50,4 +50,5 @@ pipeline {
             to: 'baurzhansiit@gmail.com'
         }
     }
+}
 }
