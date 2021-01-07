@@ -18,7 +18,7 @@ class Pipeline {
             script.stage('WorkflowScript') { 
                 script.sh  "echo hello"
                 script.sh "${script.build.projectFolder}"
-              script.build.projectFolder
+              script.stage() build.projectFolder
             }
     }
 
