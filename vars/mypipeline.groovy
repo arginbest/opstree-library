@@ -5,7 +5,7 @@ def call() {
                 checkout scm
             }
         def p = pipelineConfig()
-        
+        sh "printenv"
         dir("${p.build.projectFolder}") {
             stage('build'){
                 sh "${p.build.buildCommand}"
