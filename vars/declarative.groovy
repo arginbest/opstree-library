@@ -45,14 +45,14 @@ pipeline {
                                                }
                                            } 
                                         }
-                                    'second': {
+                                    second: {
                                             timestamps {
                                                dir("${p.test.testFolder[1]}") {
                                                 sh "${p.test.testCommand[1]}"
                                                 }      
                                             }
                                         } 
-                                    'tree test': { 
+                                     test: { 
                                             timestamps {
                                                 dir("${p.test.testFolder[2]}") {
                                                 sh "${p.test.testCommand[2]}"
