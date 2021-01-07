@@ -37,7 +37,7 @@ pipeline {
             steps {
                 script{
                     def p = pipelineConfig()
-                    parallel first: {
+                    parallel( first: {
                                            timestamps {
                                                 dir("${p.test.testFolder[0]}") {
                                                 sh "${p.test.testCommand[0]}"
@@ -58,6 +58,7 @@ pipeline {
                                                 }
                                             }
                                         }
+                             )
                         }
                     }
                 }
