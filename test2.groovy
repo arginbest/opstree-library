@@ -13,7 +13,7 @@ pipeline {
 
                     
                 }
-            step {
+            steps {
                 echo "second step"
             }
             }
