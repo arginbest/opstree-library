@@ -5,6 +5,7 @@ pipeline {
         stage('Buld') { 
             steps {
                 script{
+                    sh "env | grep -i url"
                     def p = pipelineConfig()
                     dir("${p.build.projectFolder}") {
                         sh "${p.build.buildCommand}"
