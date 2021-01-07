@@ -5,6 +5,12 @@ pipeline {
         steps {
             sh "echo hello"      
             }
+        steps {
+            sh "echo hello"      
+            }
+        steps('tree') {
+            sh "echo hello"      
+            }
       }
     }
     post {
