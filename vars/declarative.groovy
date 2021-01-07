@@ -1,11 +1,15 @@
 def call() {
+def var() {
+       def p = pipelineConfig()
+}
 pipeline {
   agent any
+  environment {
     stages {
         stage('Buld') { 
             steps {
                 script{
-                    def p = pipelineConfig()
+                    
                     dir("${p.build.projectFolder}") {
                         sh "${p.build.buildCommand}"
                     }
@@ -15,7 +19,7 @@ pipeline {
         stage('Database') { 
             steps {
                 script{
-                    def p = pipelineConfig()
+                 
                     dir("${p.database.databaseFolder}") {
                         sh "${p.database.databaseCommand}"
                     }
@@ -43,7 +47,7 @@ pipeline {
                     }      
                 }
             }
-        stage('Test 2') { 
+        stage('') { 
             steps {
                 script{
                     def p = pipelineConfig()
@@ -64,6 +68,7 @@ pipeline {
                 }
             }
         }
+  }
     post {
         always {
         echo 'One way or another, I have finished'
