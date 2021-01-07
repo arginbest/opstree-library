@@ -32,8 +32,9 @@ pipeline {
                 }
             }
         }
-
-        stage('Test 1') { 
+        parallel a: {
+                timestamps {
+        stage("${HOME}") { 
             steps {
                 script{
                     def p = pipelineConfig()
@@ -43,6 +44,9 @@ pipeline {
                     }      
                 }
             }
+        }
+        }, b: {
+                timestamps {
         stage('') { 
             steps {
                 script{
@@ -53,6 +57,9 @@ pipeline {
                     }      
                 }
             }
+                }
+        }, c: {
+                timestamps {
         stage('Test 3') { 
             steps {
                 script{
@@ -62,6 +69,7 @@ pipeline {
                         }
                     }      
                 }
+            }
             }
         }
     post {
