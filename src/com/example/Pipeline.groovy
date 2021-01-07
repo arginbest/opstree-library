@@ -18,7 +18,6 @@ class Pipeline {
             script.customWorkspace = "~/"
             }
         }
-    }
 
 // pipeline {
 //   agent any
