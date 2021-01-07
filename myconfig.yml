@@ -24,7 +24,7 @@ test:
   testCommand: "mvn clean test -Dscope=performance"
 - testFolder: "test"
   name: "regression"
-  testCommand: "mvn clean test -Dscope=regression; exit 1"
+  testCommand: "mvn clean test -Dscope=regression"
 - testFolder: "test"
   name: "integration"
   testCommand: "mvn clean test -Dscope=integration"
