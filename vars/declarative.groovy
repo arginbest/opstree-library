@@ -74,15 +74,15 @@ pipeline {
         failure {
             echo 'I failed :('
             mail bcc: '', 
-            body: "Check console output at '${env.BUILD_URL}'", 
-            cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
+            body: "Please go to ${env.BUILD_URL}/consoleText for more details. "), 
+            cc: '', from: '', replyTo: '', subject: "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
             to: 'baurzhansiit@gmail.com'
         }
         changed {
             echo 'Things were different before...'
             mail bcc: '', 
-            body: "Check changes at '${env.BUILD_URL}'", 
-            cc: '', from: '', replyTo: '', subject: "changes: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
+            body: "Please go to ${env.BUILD_URL}/consoleText for more details. "), 
+            cc: '', from: '', replyTo: '', subject: "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
             to: 'baurzhansiit@gmail.com'
         }
     }
