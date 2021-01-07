@@ -22,7 +22,7 @@ class Pipeline {
 
             script.stage('Read YAML file') {
                 script.echo "${script.pwd}"
-                script.def file = readYaml file: "${this.configurationFile}" 
+                script.def file = readYaml text: "${this.configurationFile}" 
                 }
                 script.stage('cleanUp') {
                     script.cleanWs()
