@@ -1,14 +1,10 @@
-def call() {
 pipeline {
   agent any
     stages {
-      stage('buld') {
-        def p = pipelineConfig()
-          dir("${p.build.projectFolder}") {
+      stage('buld') { 
         steps {
-            sh "${p.build.buildCommand}"      
+            sh "hello"      
             }
-        }
       }
     }
     post {
@@ -19,5 +15,4 @@ pipeline {
             sendToIndividuals: true])
         }
     }
-}
 }
