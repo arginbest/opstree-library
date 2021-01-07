@@ -1,4 +1,5 @@
 def call() {
+def p = pipelineConfig()
 pipeline {
   agent any
     stages {
