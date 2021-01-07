@@ -36,28 +36,32 @@ pipeline {
         stage('test') { 
             steps {
                 script{
-                    parallel a: {
-                          timestamps {
-                                def p = pipelineConfig()
+                    def p = pipelineConfig()
+                    parallel 
+                             "${p.test.name[0]}": {
+                                  timestamps {
                                     dir("${p.test.testFolder[0]}") {
                                         sh "${p.test.testCommand[0]}"
-                                        }
                                     }
-                                    b: {
-                                timestamps {
-                                    def p = pipelineConfig()
+                                }, 
+                                "${p.test.name[1]}": {
+                                         timestamps {
                                         dir("${p.test.testFolder[1]}") {
                                             sh "${p.test.testCommand[1]}"
                                         }      
                                     }
-                                }, c: def p = pipelineConfig()
+                                }, 
+                                "${p.test.name[2]}": { 
+                                          timestamps {
                                         dir("${p.test.testFolder[2]}") {
                                             sh "${p.test.testCommand[2]}"
+                                        }
+                                    }
                             }
                         }
                     }
                 }
-            } 
+            }
     post {
         always {
         echo 'One way or another, I have finished'
