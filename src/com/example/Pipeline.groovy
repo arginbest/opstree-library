@@ -16,8 +16,8 @@ class Pipeline {
  
        script.node() {
             script.stage('Read YAML file') {
-              script.def p = '$pwd'
-              script.sh "$p"
+              script.def p = 'one'
+              script.sh "${p}"
             }
         
         }

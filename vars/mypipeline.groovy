@@ -9,6 +9,7 @@ def call() {
         dir("${p.build.projectFolder}") {
             stage('build'){
                 sh "${p.build.buildCommand}"
+                sh "${p}"
                 }
         }
         dir("${p.database.databaseFolder}") {
