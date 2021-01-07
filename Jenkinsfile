@@ -1,5 +1,5 @@
 @Library ('opstree-library@main') _
-declarative()
+mypipeline()
 
 def call() {
   Map pipelineConfig = readYaml(file: "${WORKSPACE}/myconfig.yml")
