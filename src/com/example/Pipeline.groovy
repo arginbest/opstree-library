@@ -17,9 +17,9 @@ class Pipeline {
        script.node() {
 
            script.stage("Pull SCM") {
-               script.git 'https://github.com/arginbest/opstree-library.git'
+               script.git 'https://github.com/arginbest/challange.git'
             }
-            
+
             script.stage('Read YAML file') {
                 script.readYaml(file: "${this.configurationFile}") 
             }
