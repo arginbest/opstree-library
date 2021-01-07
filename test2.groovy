@@ -1,9 +1,3 @@
-def buildResults = [:]
-
-void nofify_email(Map results) {
-    echo "TEST SIMULATE notify: ${results.toString()}"
-}
-
 pipeline {
 
     agent any
@@ -14,18 +8,14 @@ pipeline {
 
             steps {
                 script {
-                    def jobBuild = build job: 'testJob', propagate: false
+                    
+                    echo "Build of 'testJob' returned result:"
 
-                    def jobResult = jobBuild.getResult()
-
-                    echo "Build of 'testJob' returned result: ${jobResult}"
-
-                    buildResults['testJob'] = jobResult
-
-                    if (jobResult != 'SUCCESS') {
-                        error("testJob failed with result: ${jobResult}")
-                    }
+                    
                 }
+            step {
+                echo "second step"
+            }
             }
         }
     }
@@ -33,7 +23,7 @@ pipeline {
     post {
 
         always {
-            echo "Build results: ${buildResults.toString()}"
+            echo "Build results"
         }
 
         success {
@@ -44,7 +34,10 @@ pipeline {
             echo "A job failed"
 
             script {
-                nofify_email(buildResults)
+                mail bcc: '', 
+                body: "Check console output at '${env.BUILD_URL}' error output = ${err}", 
+                cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
+                    to: 'baurzhansiit@gmail.com'
             }
         }
     }
