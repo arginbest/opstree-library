@@ -3,22 +3,22 @@ pipeline {
     stages {
       stage('buld') { 
         steps {
-            sh "echo hello11111"      
+            sh "echo hello"      
             }
       }
     stage('test') { 
         steps {
-            sh "echo hello8888888888888333333"      
+            sh "echo hello2"      
             }
       }
     stage('deploy') { 
         steps {
-            sh "echo hello444444444444dddsddddd"      
+            sh "echo hello3; exit 1"      
             }
       }
     stage('deploy2') { 
         steps {
-            sh "echo hello44444e444444334dd3333dsddddd"      
+            sh "echo hello4"      
             }
       }
     }
@@ -35,10 +35,10 @@ pipeline {
         }
         failure {
             echo 'I failed :('
-        mail bcc: '', 
-        body: "Check console output at '${env.BUILD_URL}'", 
-        cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
-        to: 'baurzhansiit@gmail.com'
+            mail bcc: '', 
+            body: "Check console output at '${env.BUILD_URL}'", 
+            cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
+            to: 'baurzhansiit@gmail.com'
         }
 
         changed {
