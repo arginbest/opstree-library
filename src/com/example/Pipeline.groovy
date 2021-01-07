@@ -17,7 +17,7 @@ class Pipeline {
     script.node() {
             script.stage('WorkflowScript') { 
                 script.sh  "echo hello"
-                scmInfo[]
+                script.buildCommand
             }
     }
 
