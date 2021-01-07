@@ -55,7 +55,8 @@ pipeline {
                         }
                     }
                 }
-            }, 
+            }
+}, 
 
         // stage('') { 
         //     steps {
