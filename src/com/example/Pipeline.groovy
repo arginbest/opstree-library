@@ -4,7 +4,7 @@ class Pipeline {
     def script
     def configurationFile
 
-    Pipelin(script, configurationFile) {
+    Pipeline(script, configurationFile) {
         this.script = script
         this.configurationFile = configurationFile
     }
