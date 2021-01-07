@@ -43,15 +43,15 @@ pipeline {
                                                 sh "${p.test.testCommand[0]}"
                                                }
                                            } 
-                                        }
-                                    second: {
+                                        },
+                                    'second': {
                                             timestamps {
                                                dir("${p.test.testFolder[1]}") {
                                                 sh "${p.test.testCommand[1]}"
                                                 }      
                                             }
-                                        } 
-                                     test: { 
+                                        }, 
+                                     'test': { 
                                             timestamps {
                                                 dir("${p.test.testFolder[2]}") {
                                                 sh "${p.test.testCommand[2]}"
