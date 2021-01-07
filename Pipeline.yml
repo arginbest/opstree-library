@@ -1,7 +1,0 @@
-ENVIRONMENT_NAME: Baur
-SERVICE_NAME: opstree-service
-DB_PORT: 3079
-REDIS_PORT: 6079
-build:
-  projectFolder: 'project'
-  buildCommand: "mvn clean test"
