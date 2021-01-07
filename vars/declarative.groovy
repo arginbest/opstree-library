@@ -5,17 +5,6 @@ pipeline {
         stage('Buld') { 
             steps {
                 script{
-                    sh """
-                    echo GIT_COMMIT %GIT_COMMIT% 
-                    echo GIT_BRANCH %GIT_BRANCH%
-                    echo GIT_LOCAL_BRANCH %GIT_LOCAL_BRANCH%
-                    echo GIT_PREVIOUS_COMMIT %GIT_PREVIOUS_COMMIT%
-                    echo GIT_PREVIOUS_SUCCESSFUL_COMMIT %GIT_PREVIOUS_SUCCESSFUL_COMMIT%
-                    echo GIT_URL %GIT_URL%
-                    echo GIT_URL_N - %GIT_URL_N%
-                    echo GIT_AUTHOR_NAME %GIT_AUTHOR_NAME%
-                    echo GIT_COMMITTER_EMAIL %GIT_COMMITTER_EMAIL%
-                    """
                     def p = pipelineConfig()
                     dir("${p.build.projectFolder}") {
                         sh "${p.build.buildCommand}"
@@ -87,7 +76,7 @@ pipeline {
                 GIT_COMMITTER_NAME ${env.GIT_COMMITTER_NAME}, 
                 GIT_COMMITTER_EMAIL = ${env.GIT_COMMITTER_EMAIL} """, 
                 cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
-                to: "baurzhansiit@gmail.com"
+                to: "my@box.com"
             }
             failure {
                 echo 'Stage FAIL'
@@ -98,7 +87,7 @@ pipeline {
                 GIT_COMMITTER_NAME ${env.GIT_COMMITTER_NAME}, 
                 GIT_COMMITTER_EMAIL = ${env.GIT_COMMITTER_EMAIL} """, 
                 cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
-                to: "baurzhansiit@gmail.com"
+                to: "my@box.com"
             }
         }
     }
