@@ -18,7 +18,7 @@ pipeline {
       }
     stage('deploy2') { 
         steps {
-            sh "echo hello44444444444334dd3333dsddddd"      
+            sh "echo hello44444e444444334dd3333dsddddd"      
             }
       }
     }
