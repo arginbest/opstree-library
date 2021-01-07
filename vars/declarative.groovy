@@ -1,3 +1,4 @@
+def p = pipelineConfig()
 def call() {
 pipeline {
   agent any
