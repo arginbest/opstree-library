@@ -78,7 +78,7 @@ pipeline {
                 mail bcc: '', 
                 body: """Please go to ${env.BUILD_URL}/consoleText for more details.,
                 additional info: Name of the agent - ${env.NODE_NAME},
-                                 The commit hash being checked out - ${env.GIT_COMMIT} """, 
+                The commit hash being checked out - ${env.GIT_COMMIT} """, 
                 cc: '', from: '', replyTo: '', subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
                 to: "baurzhansiit@gmail.com"
             }
