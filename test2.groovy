@@ -1,7 +1,7 @@
 node {
     try {
         stage('one') {
-            sh "echo Hello; exit 1"
+            sh "echo Hello"
         }
         stage('two') {
             sh "echo world"
