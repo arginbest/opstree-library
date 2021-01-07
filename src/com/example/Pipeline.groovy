@@ -17,7 +17,6 @@ class Pipeline {
     script.node() {
             script.stage('WorkflowScript') { 
                 script.sh  "echo hello"
-                script.commonPipelineEnvironment.configuration
                 script: this
             }
     }
