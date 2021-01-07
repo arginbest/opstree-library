@@ -13,11 +13,11 @@ node {
             sh "echo world"
         }
         script {
-            if (currentBuild.result == 'SUCCESS') {
+            if (currentBuild.result != 'SUCCESS') {
                     echo 'Build has changed to SUCCESS status'
                 }
         }
-        
+
     } catch (err) {
         echo "Caught: ${err}"
         currentBuild.result = 'FAILURE'
