@@ -9,7 +9,7 @@ notifications:
 #Build configuration
 build:
   projectFolder: 'project'
-  buildCommand: "mvn clean test"
+  buildCommand: "mvn clean test2"
 #Database configuration
 database:
   databaseFolder: 'database'
