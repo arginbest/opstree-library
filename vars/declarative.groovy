@@ -1,10 +1,12 @@
 def call() {
 def var() {
        def p = pipelineConfig()
-}
+           return p
+       }
 pipeline {
   agent any
   environment {
+      MY_GLOBAL_VAR = p()
     stages {
         stage('Buld') { 
             steps {
